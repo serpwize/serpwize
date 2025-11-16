@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serpwize Technologies - AI-First SEO & AI Overview Optimization. Rank on Google, AI Overviews, ChatGPT, Gemini & Perplexity. Conversion-focused website development services.">
+    <title>Serpwize Technologies | AI-First SEO & Website Development</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           CSS RESET & BASE STYLES
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Brand Colors */
+            --color-primary: #4FAFEA;      /* Sky Blue */
+            --color-accent: #F9C74F;       /* Yellow Gold */
+            --color-secondary: #2A6F4E;    /* Forest Green */
+            --color-background: #FAFDFE;   /* Cream White */
+            
+            /* Additional Utility Colors */
+            --color-primary-light: #E8F6FD;
+            --color-primary-dark: #3A8BC2;
+            --color-secondary-light: #D4E8DF;
+            --color-text-dark: #1A1A1A;
+            --color-text-light: #666666;
+            --color-white: #FFFFFF;
+            --color-border: #E5E5E5;
+            
+            /* Typography */
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            
+            /* Transitions */
+            --transition: all 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-secondary);
+            background-color: var(--color-background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--color-secondary);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        h4 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        p {
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text-light);
+            font-size: 1.0625rem;
+        }
+        
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--color-primary-dark);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .container-wide {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        /* Section Spacing */
+        section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .section-small {
+            padding: var(--spacing-lg) 0;
+        }
+        
+        /* ========================================
+           HEADER & NAVIGATION
+           ======================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(250, 253, 254, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem var(--spacing-md);
+        }
+        
+        .header__logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .header__logo span {
+            color: var(--color-secondary);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .nav__list {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+        
+        .nav__link {
+            font-weight: 500;
+            color: var(--color-secondary);
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-primary);
+            transition: var(--transition);
+        }
+        
+        .nav__link:hover::after {
+            width: 100%;
+        }
+        
+        .nav__link:hover {
+            color: var(--color-primary);
+        }
+        
+        /* Mobile Menu Toggle */
+        .nav__toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+        
+        .nav__toggle span {
+            width: 28px;
+            height: 3px;
+            background-color: var(--color-secondary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+        
+        .nav__toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .nav__toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .nav__toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        /* ========================================
+           BUTTONS & CTA
+           ======================================== */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: var(--font-body);
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-secondary);
+            box-shadow: 0 4px 15px rgba(249, 199, 79, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: #F7B519;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 199, 79, 0.4);
+            color: var(--color-secondary);
+        }
+        
+        .btn-secondary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(79, 175, 234, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 175, 234, 0.4);
+            color: var(--color-white);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-large {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+        }
+        
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: var(--spacing-xl);
+            background: linear-gradient(135deg, var(--color-background) 0%, var(--color-primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(79, 175, 234, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero__content h1 {
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero__content h1 .highlight {
+            color: var(--color-primary);
+            position: relative;
+        }
+        
+        .hero__subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+        
+        .hero__cta {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        .hero__visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero__placeholder {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            font-weight: 600;
+            box-shadow: 0 20px 60px rgba(79, 175, 234, 0.3);
+        }
+        
+        /* Trust Badges */
+        .hero__badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .badge {
+            background-color: var(--color-white);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .badge__icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .badge__text {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            margin: 0;
+        }
+        
+        /* ========================================
+           AI SEO DIFFERENCE SECTION
+           ======================================== */
+        .ai-difference {
+            background-color: var(--color-white);
+        }
+        
+        .section__header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .section__title {
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .section__title .highlight {
+            color: var(--color-primary);
+        }
+        
+        .section__subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .ai-difference__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+        
+        .ai-difference__content h3 {
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .ai-difference__content p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+        
+        .ai-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .ai-feature {
+            background-color: var(--color-primary-light);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--color-primary);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            transition: var(--transition);
+        }
+        
+        .ai-feature:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(79, 175, 234, 0.15);
+        }
+        
+        .ai-feature__icon {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+        
+        .ai-feature__text {
+            flex: 1;
+        }
+        
+        .ai-feature__text h4 {
+            color: var(--color-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .ai-feature__text p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        
+        /* ========================================
+           SERVICES SECTION
+           ======================================== */
+        .services {
+            background: linear-gradient(180deg, var(--color-background) 0%, var(--color-secondary-light) 100%);
+        }
+        
+        .services__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .service-card {
+            background-color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border-top: 4px solid var(--color-primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-top-color: var(--color-accent);
+        }
+        
+        .service-card__icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .service-card__title {
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .service-card__description {
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.7;
+        }
+        
+        .service-card__benefits {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .service-card__benefits li {
+            color: var(--color-text-light);
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .service-card__benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+        
+        .service-card__link {
+            color: var(--color-primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .service-card__link:hover {
+            gap: 0.75rem;
+        }
+        
+        /* ========================================
+           RESULTS / CASE STUDIES SECTION
+           ======================================== */
+        .results {
+            background-color: var(--color-white);
+        }
+        
+        .results__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .case-card {
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-white) 100%);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: 2px solid var(--color-border);
+            transition: var(--transition);
+        }
+        
+        .case-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(79, 175, 234, 0.2);
+        }
+        
+        .case-card__tag {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .case-card__title {
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .case-card__problem {
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-sm);
+            font-style: italic;
+        }
+        
+        .case-card__results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin: var(--spacing-sm) 0;
+        }
+        
+        .case-stat {
+            background-color: var(--color-white);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            text-align: center;
+        }
+        
+        .case-stat__number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .case-stat__label {
+            font-size: 0.875rem;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+        
+        .case-card__cta {
+            margin-top: var(--spacing-sm);
+        }
+        
+        /* ========================================
+           PROCESS SECTION
+           ======================================== */
+        .process {
+            background: linear-gradient(180deg, var(--color-background) 0%, var(--color-primary-light) 100%);
+        }
+        
+        .process__timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .process-step {
+            background-color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .process-step__number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin: 0 auto var(--spacing-sm);
+        }
+        
+        .process-step__title {
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .process-step__description {
+            color: var(--color-text-light);
+            font-size: 0.9375rem;
+            margin: 0;
+        }
+        
+        /* ========================================
+           SOCIAL PROOF SECTION
+           ======================================== */
+        .social-proof {
+            background-color: var(--color-white);
+        }
+        
+        .logos {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .logos__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+            align-items: center;
+            margin-top: var(--spacing-md);
+        }
+        
+        .logo-placeholder {
+            height: 80px;
+            background-color: var(--color-primary-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .logo-placeholder:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .testimonial {
+            background: linear-gradient(135deg, var(--color-secondary-light) 0%, var(--color-white) 100%);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--color-secondary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .testimonial__quote {
+            color: var(--color-text-light);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-sm);
+            font-style: italic;
+        }
+        
+        .testimonial__author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .testimonial__avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        
+        .testimonial__info h4 {
+            color: var(--color-secondary);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial__info p {
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+            margin: 0;
+        }
+        
+        /* ========================================
+           BLOG PREVIEW SECTION
+           ======================================== */
+        .blog-preview {
+            background-color: var(--color-background);
+        }
+        
+        .blog__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .blog-card {
+            background-color: var(--color-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-card__image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: 600;
+        }
+        
+        .blog-card__content {
+            padding: var(--spacing-md);
+        }
+        
+        .blog-card__meta {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+        
+        .blog-card__category {
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+        }
+        
+        .blog-card__date {
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+        }
+        
+        .blog-card__title {
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.25rem;
+        }
+        
+        .blog-card__excerpt {
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.9375rem;
+        }
+        
+        .blog-card__link {
+            color: var(--color-primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .blog-card__link:hover {
+            gap: 0.75rem;
+        }
+        
+        /* ========================================
+           FINAL CTA SECTION
+           ======================================== */
+        .final-cta {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .final-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-md);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .final-cta .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-secondary);
+        }
+        
+        .final-cta .btn-primary:hover {
+            background-color: #F7B519;
+        }
+        
+        /* ========================================
+           ABOUT PAGE SECTION
+           ======================================== */
+        .about {
+            background-color: var(--color-white);
+        }
+        
+        .about__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .about__content h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .about__content p {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.8;
+        }
+        
+        .about__values {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .about__value {
+            background-color: var(--color-primary-light);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--color-primary);
+        }
+        
+        .about__value h4 {
+            color: var(--color-secondary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .about__value p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        
+        .about__image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .why-us {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .why-us__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .why-us__item {
+            background-color: var(--color-secondary-light);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+        
+        .why-us__icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .why-us__item h4 {
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .why-us__item p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        
+        /* ========================================
+           CONTACT SECTION
+           ======================================== */
+        .contact {
+            background: linear-gradient(180deg, var(--color-background) 0%, var(--color-primary-light) 100%);
+        }
+        
+        .contact__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .contact__info h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact__info p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+        
+        .contact__details {
+            background-color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact__detail {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact__detail:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact__icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+        
+        .contact__detail p {
+            margin: 0;
+            color: var(--color-secondary);
+            font-weight: 500;
+        }
+        
+        .form {
+            background-color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form__group {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .form__label {
+            display: block;
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form__input,
+        .form__select,
+        .form__textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--color-background);
+        }
+        
+        .form__input:focus,
+        .form__select:focus,
+        .form__textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background-color: var(--color-white);
+        }
+        
+        .form__textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form__privacy {
+            font-size: 0.875rem;
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .form__submit {
+            width: 100%;
+        }
+        
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+        }
+        
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .footer__about h3 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .footer__about p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .footer__section h4 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.125rem;
+        }
+        
+        .footer__links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .footer__links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+        
+        .footer__links a:hover {
+            color: var(--color-accent);
+            padding-left: 5px;
+        }
+        
+        .footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .footer__bottom p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+        
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
+        @media (max-width: 1024px) {
+            .hero__container,
+            .ai-difference__grid,
+            .about__grid,
+            .contact__grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero__visual {
+                order: -1;
+            }
+            
+            .footer__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --spacing-xl: 4rem;
+                --spacing-lg: 3rem;
+            }
+            
+            .nav__list {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: var(--color-white);
+                flex-direction: column;
+                padding: var(--spacing-md);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav__list.active {
+                transform: translateY(0);
+            }
+            
+            .nav__toggle {
+                display: flex;
+            }
+            
+            .header__container .btn-primary {
+                display: none;
+            }
+            
+            .hero__cta {
+                flex-direction: column;
+            }
+            
+            .hero__placeholder {
+                height: 300px;
+            }
+            
+            .services__grid,
+            .results__grid,
+            .blog__grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process__timeline {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer__grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero__badges {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-card__results {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ========================================
+           UTILITY CLASSES
+           ======================================== */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-1 { margin-top: var(--spacing-sm); }
+        .mt-2 { margin-top: var(--spacing-md); }
+        .mt-3 { margin-top: var(--spacing-lg); }
+        
+        .mb-1 { margin-bottom: var(--spacing-sm); }
+        .mb-2 { margin-bottom: var(--spacing-md); }
+        .mb-3 { margin-bottom: var(--spacing-lg); }
+    </style>
+</head>
+<body>
+    
+    <!-- ========================================
+         HEADER & NAVIGATION
+         ======================================== -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="#home" class="header__logo">
+                Serpwize <span>Technologies</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list" id="navList">
+                    <li><a href="#home" class="nav__link">Home</a></li>
+                    <li><a href="#services" class="nav__link">Services</a></li>
+                    <li><a href="#results" class="nav__link">Case Studies</a></li>
+                    <li><a href="#about" class="nav__link">About</a></li>
+                    <li><a href="#blog" class="nav__link">Blog</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+                
+                <a href="#contact" class="btn btn-primary">Book a Free AI SEO Strategy Call</a>
+                
+                <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- ========================================
+         HERO SECTION
+         ======================================== -->
+    <section class="hero" id="home">
+        <div class="container hero__container">
+            <div class="hero__content">
+                <h1>AI-First SEO to Dominate Google & <span class="highlight">AI Overviews</span></h1>
+                <p class="hero__subtitle">
+                    Serpwize Technologies helps you rank not just on Google search, but also in AI Overviews 
+                    and answers from leading AI models – bringing you high-intent traffic that converts.
+                </p>
+                
+                <div class="hero__cta">
+                    <a href="#contact" class="btn btn-primary btn-large">Get My Free AI SEO Audit</a>
+                    <a href="#results" class="btn btn-outline btn-large">View Case Studies</a>
+                </div>
+                
+                <div class="hero__badges">
+                    <div class="badge">
+                        <div class="badge__icon">🤖</div>
+                        <p class="badge__text">AI-Driven Strategy</p>
+                    </div>
+                    <div class="badge">
+                        <div class="badge__icon">📈</div>
+                        <p class="badge__text">Full-Funnel CRO Focused</p>
+                    </div>
+                    <div class="badge">
+                        <div class="badge__icon">⚡</div>
+                        <p class="badge__text">Technical + Content SEO</p>
+                    </div>
+                    <div class="badge">
+                        <div class="badge__icon">📊</div>
+                        <p class="badge__text">Transparent Reporting</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero__visual">
+                <div class="hero__placeholder">
+                    AI SEO Visualization
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         HOW AI SEO IS DIFFERENT SECTION
+         ======================================== -->
+    <section class="ai-difference section-small" id="ai-difference">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">How <span class="highlight">AI SEO</span> Is Different</h2>
+                <p class="section__subtitle">
+                    Traditional SEO is no longer enough. AI is reshaping how people search and find information. 
+                    We help you stay ahead.
+                </p>
+            </div>
+            
+            <div class="ai-difference__grid">
+                <div class="ai-difference__content">
+                    <h3>Traditional SEO vs AI-First SEO</h3>
+                    <p>
+                        While traditional SEO focuses solely on Google search rankings, AI-First SEO prepares 
+                        your content to be discovered and cited by AI models like ChatGPT, Gemini, Perplexity, 
+                        and Google's AI Overviews. This means optimizing for machine understanding, not just 
+                        keywords.
+                    </p>
+                    <p>
+                        We combine technical excellence, structured data, entity optimization, and content 
+                        strategy that makes your brand the authoritative source AI tools reference.
+                    </p>
+                </div>
+                
+                <div class="ai-features">
+                    <div class="ai-feature">
+                        <div class="ai-feature__icon">🎯</div>
+                        <div class="ai-feature__text">
+                            <h4>Optimize for AI Overviews (AEO)</h4>
+                            <p>Get featured in Google's AI-generated answers at the top of search results</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature__icon">💬</div>
+                        <div class="ai-feature__text">
+                            <h4>Content Designed for LLM Answers</h4>
+                            <p>Structure content to be easily cited by ChatGPT, Gemini, and other AI models</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature__icon">⚙️</div>
+                        <div class="ai-feature__text">
+                            <h4>Technical SEO Excellence</h4>
+                            <p>Fast, structured, crawlable sites that both humans and AI can understand</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature__icon">📊</div>
+                        <div class="ai-feature__text">
+                            <h4>Data-Driven Experimentation</h4>
+                            <p>Continuous testing and optimization based on real performance data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         SERVICES SECTION
+         ======================================== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Our <span class="highlight">AI-First</span> Services</h2>
+                <p class="section__subtitle">
+                    Comprehensive SEO and web development solutions designed to help you dominate 
+                    both traditional search and AI-powered platforms.
+                </p>
+            </div>
+            
+            <div class="services__grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-card__icon">🤖</div>
+                    <h3 class="service-card__title">AI-First SEO & AI Overview Optimization</h3>
+                    <p class="service-card__description">
+                        Position your brand to be featured in AI Overviews, ChatGPT responses, Gemini answers, 
+                        and Perplexity results while maintaining strong Google organic rankings.
+                    </p>
+                    <ul class="service-card__benefits">
+                        <li>AI Overview optimization (AEO)</li>
+                        <li>Entity and knowledge graph optimization</li>
+                        <li>Structured data implementation</li>
+                        <li>Content strategy for LLM citation</li>
+                        <li>Competitive AI visibility analysis</li>
+                    </ul>
+                    <a href="#contact" class="service-card__link">
+                        Learn More →
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-card__icon">⚙️</div>
+                    <h3 class="service-card__title">Technical SEO & Site Health</h3>
+                    <p class="service-card__description">
+                        Build a solid foundation with technical excellence that ensures fast loading, 
+                        perfect crawlability, and optimal user experience.
+                    </p>
+                    <ul class="service-card__benefits">
+                        <li>Core Web Vitals optimization</li>
+                        <li>Site speed and performance tuning</li>
+                        <li>Crawl budget optimization</li>
+                        <li>Indexing and rendering fixes</li>
+                        <li>Mobile-first optimization</li>
+                    </ul>
+                    <a href="#contact" class="service-card__link">
+                        Learn More →
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-card__icon">💻</div>
+                    <h3 class="service-card__title">Website Design & Development</h3>
+                    <p class="service-card__description">
+                        Conversion-focused websites built with clean code, SEO-ready architecture, 
+                        and designed to turn visitors into customers.
+                    </p>
+                    <ul class="service-card__benefits">
+                        <li>Conversion Rate Optimization (CRO)</li>
+                        <li>SEO-ready website architecture</li>
+                        <li>Responsive and mobile-first design</li>
+                        <li>Fast loading and lightweight code</li>
+                        <li>User experience focused</li>
+                    </ul>
+                    <a href="#contact" class="service-card__link">
+                        Learn More →
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-card__icon">📍</div>
+                    <h3 class="service-card__title">Local SEO & Google Business Profile</h3>
+                    <p class="service-card__description">
+                        Dominate local search results and map rankings with AI-optimized local SEO 
+                        that drives foot traffic and phone calls.
+                    </p>
+                    <ul class="service-card__benefits">
+                        <li>Google Business Profile optimization</li>
+                        <li>Local keyword targeting</li>
+                        <li>Citation building and management</li>
+                        <li>Review generation strategy</li>
+                        <li>Local AI visibility optimization</li>
+                    </ul>
+                    <a href="#contact" class="service-card__link">
+                        Learn More →
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-card__icon">✍️</div>
+                    <h3 class="service-card__title">AI Content & Strategy</h3>
+                    <p class="service-card__description">
+                        Create content that AI models love to cite and humans love to read. Strategic 
+                        content designed for maximum visibility and engagement.
+                    </p>
+                    <ul class="service-card__benefits">
+                        <li>Topic clustering and content hubs</li>
+                        <li>FAQ and Q&A optimization</li>
+                        <li>Entity-based content strategy</li>
+                        <li>Content for AI model training</li>
+                        <li>Semantic SEO implementation</li>
+                    </ul>
+                    <a href="#contact" class="service-card__link">
+                        Learn More →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         RESULTS & CASE STUDIES SECTION
+         ======================================== -->
+    <section class="results" id="results">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Real Results, Not Just <span class="highlight">Rankings</span></h2>
+                <p class="section__subtitle">
+                    See how we've helped businesses like yours achieve measurable growth through 
+                    AI-First SEO and conversion-focused strategies.
+                </p>
+            </div>
+            
+            <div class="results__grid">
+                <!-- Case Study 1 -->
+                <div class="case-card">
+                    <span class="case-card__tag">SaaS Company</span>
+                    <h3 class="case-card__title">B2B SaaS Platform Growth</h3>
+                    <p class="case-card__problem">
+                        <strong>Challenge:</strong> Low organic visibility and minimal AI Overview presence 
+                        in a competitive industry.
+                    </p>
+                    <div class="case-card__results">
+                        <div class="case-stat">
+                            <span class="case-stat__number">325%</span>
+                            <p class="case-stat__label">Organic Traffic Increase</p>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat__number">18</span>
+                            <p class="case-stat__label">AI Overview Features</p>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat__number">42%</span>
+                            <p class="case-stat__label">Lead Generation Growth</p>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat__number">156%</span>
+                            <p class="case-stat__label">Conversion Rate Lift</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-outline case-card__cta">View Full Case Study</a>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="case-card">
+                    <span class="case-card__tag">E-commerce</span>
+                    <h3 class="case-card__title">Online Retail Store Transformation</h3>
+                    <p class="case-card__problem">
+                        <strong>Challenge:</strong> Poor site speed, low rankings, and minimal mobile traffic 
+                        impacting sales.
+                    </p>
+                    <div class="case-card__results">
+                        <div class="case-stat">
+                            <span class="case-stat__number">280%</span>
+                            <p class="case-stat__label">Revenue Increase</p>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat__number">94</span>
+                            <p class="case-stat__label">Page Speed Score</p>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat__number">450%</span>
+                            <p class="case-stat__label">Mobile Traffic Growth</p>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat__number">38%</span>
+                            <p class="case-stat__label">Cart Conversion Rate</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-outline case-card__cta">View Full Case Study</a>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="case-card">
+                    <span class="case-card__tag">Healthcare</span>
+                    <h3 class="case-card__title">Medical Practice Local Dominance</h3>
+                    <p class="case-card__problem">
+                        <strong>Challenge:</strong> Limited local visibility and poor Google Business Profile 
+                        performance in competitive market.
+                    </p>
+                    <div class="case-card__results">
+                        <div class="case-stat">
+                            <span class="case-stat__number">520%</span>
+                            <p class="case-stat__label">Local Search Visibility</p>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat__number">1st</span>
+                            <p class="case-stat__label">Position in Maps</p>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat__number">890%</span>
+                            <p class="case-stat__label">Call Volume Increase</p>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat__number">65</span>
+                            <p class="case-stat__label">New Patients/Month</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-outline case-card__cta">View Full Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         PROCESS SECTION
+         ======================================== -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">How We <span class="highlight">Work</span></h2>
+                <p class="section__subtitle">
+                    Our proven methodology combines technical excellence, strategic thinking, 
+                    and continuous optimization to deliver sustainable results.
+                </p>
+            </div>
+            
+            <div class="process__timeline">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="process-step__number">1</div>
+                    <h4 class="process-step__title">Discover & Audit</h4>
+                    <p class="process-step__description">
+                        Comprehensive analysis of your current site health, AI visibility, 
+                        and competitive landscape.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="process-step__number">2</div>
+                    <h4 class="process-step__title">Strategy & Roadmap</h4>
+                    <p class="process-step__description">
+                        Custom SEO and CRO strategy with keyword clusters, AI Overview opportunities, 
+                        and clear milestones.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="process-step__number">3</div>
+                    <h4 class="process-step__title">Implementation</h4>
+                    <p class="process-step__description">
+                        Execute technical fixes, content creation, CRO improvements, and 
+                        on-page optimization.
+                    </p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="process-step__number">4</div>
+                    <h4 class="process-step__title">Measure & Optimize</h4>
+                    <p class="process-step__description">
+                        Track performance across all channels, analyze data, and continuously 
+                        refine our approach.
+                    </p>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="process-step">
+                    <div class="process-step__number">5</div>
+                    <h4 class="process-step__title">Scale & Automate</h4>
+                    <p class="process-step__description">
+                        Systematize what works, expand to new opportunities, and build 
+                        sustainable growth systems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         SOCIAL PROOF SECTION
+         ======================================== -->
+    <section class="social-proof" id="social-proof">
+        <div class="container">
+            <!-- Client Logos -->
+            <div class="logos">
+                <div class="section__header">
+                    <h2 class="section__title">Trusted by Growth-Focused <span class="highlight">Businesses</span></h2>
+                </div>
+                
+                <div class="logos__grid">
+                    <div class="logo-placeholder">Brand Logo 1</div>
+                    <div class="logo-placeholder">Brand Logo 2</div>
+                    <div class="logo-placeholder">Brand Logo 3</div>
+                    <div class="logo-placeholder">Brand Logo 4</div>
+                    <div class="logo-placeholder">Brand Logo 5</div>
+                    <div class="logo-placeholder">Brand Logo 6</div>
+                </div>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial__quote">
+                        "Serpwize completely transformed our SEO approach. We're now appearing in AI Overviews 
+                        for our most important keywords, and our organic traffic has tripled. The team's expertise 
+                        in AI-First SEO is unmatched."
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__avatar">RK</div>
+                        <div class="testimonial__info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>CEO, TechStart Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial__quote">
+                        "The combination of technical SEO excellence and conversion optimization has been game-changing 
+                        for our business. Not only are we ranking better, but our conversion rate has doubled. 
+                        True professionals."
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__avatar">PS</div>
+                        <div class="testimonial__info">
+                            <h4>Priya Sharma</h4>
+                            <p>Marketing Director, HealthPlus Clinic</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial__quote">
+                        "Working with Serpwize has been a breath of fresh air. They focus on metrics that matter – 
+                        leads and revenue, not just rankings. Their transparent reporting and strategic approach 
+                        make them a true partner in growth."
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__avatar">AM</div>
+                        <div class="testimonial__info">
+                            <h4>Amit Mehta</h4>
+                            <p>Founder, E-commerce Hub</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         BLOG PREVIEW SECTION
+         ======================================== -->
+    <section class="blog-preview" id="blog">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Latest from Our <span class="highlight">Blog</span></h2>
+                <p class="section__subtitle">
+                    Insights, strategies, and updates on AI SEO, conversion optimization, 
+                    and digital marketing trends.
+                </p>
+            </div>
+            
+            <div class="blog__grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-card__image">Blog Image Placeholder</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span class="blog-card__category">AI SEO</span>
+                            <span class="blog-card__date">15 Jan 2024</span>
+                        </div>
+                        <h3 class="blog-card__title">
+                            How to Optimize Your Content for Google AI Overviews in 2024
+                        </h3>
+                        <p class="blog-card__excerpt">
+                            Learn the proven strategies to get your content featured in Google's AI-generated 
+                            overview answers and drive more qualified traffic to your website.
+                        </p>
+                        <a href="#" class="blog-card__link">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-card__image">Blog Image Placeholder</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span class="blog-card__category">Technical SEO</span>
+                            <span class="blog-card__date">12 Jan 2024</span>
+                        </div>
+                        <h3 class="blog-card__title">
+                            Core Web Vitals: The Complete Guide to Speed Optimization
+                        </h3>
+                        <p class="blog-card__excerpt">
+                            A comprehensive walkthrough of improving your Core Web Vitals scores, reducing load 
+                            times, and creating lightning-fast user experiences.
+                        </p>
+                        <a href="#" class="blog-card__link">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-card__image">Blog Image Placeholder</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span class="blog-card__category">CRO</span>
+                            <span class="blog-card__date">8 Jan 2024</span>
+                        </div>
+                        <h3 class="blog-card__title">
+                            10 Data-Backed CRO Strategies to Double Your Conversion Rate
+                        </h3>
+                        <p class="blog-card__excerpt">
+                            Discover the conversion optimization tactics that consistently deliver results, 
+                            backed by real case studies and performance data.
+                        </p>
+                        <a href="#" class="blog-card__link">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         ABOUT SECTION
+         ======================================== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">About <span class="highlight">Serpwize Technologies</span></h2>
+                <p class="section__subtitle">
+                    We're not your typical SEO agency. We're AI-First, data-driven, and obsessively 
+                    focused on outcomes that matter to your business.
+                </p>
+            </div>
+            
+            <div class="about__grid">
+                <div class="about__content">
+                    <h3>Who We Are</h3>
+                    <p>
+                        Serpwize Technologies is a forward-thinking SEO and web development agency specializing 
+                        in AI-powered search optimization. We help brands adapt to the rapidly evolving search 
+                        landscape where AI models are becoming the primary gatekeepers of information.
+                    </p>
+                    <p>
+                        Founded on the principle that traditional SEO alone is no longer sufficient, we combine 
+                        technical excellence, AI understanding, and conversion optimization to deliver sustainable, 
+                        measurable growth for our clients.
+                    </p>
+                    
+                    <h3 class="mt-2">Our Philosophy</h3>
+                    <div class="about__values">
+                        <div class="about__value">
+                            <h4>AI-Driven, Not Guesswork</h4>
+                            <p>
+                                We use data, AI tools, and rigorous testing to inform every decision. 
+                                No vanity metrics, just results.
+                            </p>
+                        </div>
+                        
+                        <div class="about__value">
+                            <h4>Ethical & Transparent</h4>
+                            <p>
+                                We believe in white-hat strategies, clear communication, and building 
+                                long-term sustainable growth.
+                            </p>
+                        </div>
+                        
+                        <div class="about__value">
+                            <h4>Future-Focused</h4>
+                            <p>
+                                As AI continues to reshape search, we stay ahead of the curve to ensure 
+                                your brand remains visible.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about__image">
+                    Team / Office Image Placeholder
+                </div>
+            </div>
+            
+            <!-- Why Work With Us -->
+            <div class="why-us mt-3">
+                <h3 class="text-center">Why Work With Us</h3>
+                <div class="why-us__grid">
+                    <div class="why-us__item">
+                        <div class="why-us__icon">🎯</div>
+                        <h4>Results-Focused</h4>
+                        <p>
+                            We optimize for business outcomes – leads, sales, and revenue – not just rankings.
+                        </p>
+                    </div>
+                    
+                    <div class="why-us__item">
+                        <div class="why-us__icon">🔬</div>
+                        <h4>Data-Driven Approach</h4>
+                        <p>
+                            Every strategy is backed by research, testing, and continuous performance analysis.
+                        </p>
+                    </div>
+                    
+                    <div class="why-us__item">
+                        <div class="why-us__icon">🤝</div>
+                        <h4>True Partnership</h4>
+                        <p>
+                            We become an extension of your team, invested in your long-term success.
+                        </p>
+                    </div>
+                    
+                    <div class="why-us__item">
+                        <div class="why-us__icon">🚀</div>
+                        <h4>Cutting-Edge Expertise</h4>
+                        <p>
+                            We stay ahead of AI and SEO trends so you don't have to worry about being left behind.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-3">
+                <a href="#contact" class="btn btn-primary btn-large">See How We Can Help You Grow</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         CONTACT SECTION
+         ======================================== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Let's Talk Growth, Not <span class="highlight">Vanity Metrics</span></h2>
+                <p class="section__subtitle">
+                    Share your goals and we'll map an AI-SEO plan tailored to your business. 
+                    Get a free audit and strategic roadmap.
+                </p>
+            </div>
+            
+            <div class="contact__grid">
+                <!-- Contact Information -->
+                <div class="contact__info">
+                    <h3>Get Your Free AI SEO Audit</h3>
+                    <p>
+                        Ready to see where you stand in the AI-powered search landscape? We'll analyze 
+                        your current visibility, identify opportunities, and show you exactly how we can 
+                        help you grow.
+                    </p>
+                    
+                    <div class="contact__details">
+                        <div class="contact__detail">
+                            <div class="contact__icon">📧</div>
+                            <p>hello@serpwize.com</p>
+                        </div>
+                        
+                        <div class="contact__detail">
+                            <div class="contact__icon">📞</div>
+                            <p>+91 98765 43210</p>
+                        </div>
+                        
+                        <div class="contact__detail">
+                            <div class="contact__icon">📍</div>
+                            <p>Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <form class="form">
+                    <div class="form__group">
+                        <label for="name" class="form__label">Your Name *</label>
+                        <input type="text" id="name" name="name" class="form__input" required>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="email" class="form__label">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form__input" required>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="website" class="form__label">Website URL</label>
+                        <input type="url" id="website" name="website" class="form__input" placeholder="https://yourwebsite.com">
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="business" class="form__label">Business Type / Niche *</label>
+                        <input type="text" id="business" name="business" class="form__input" required>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="budget" class="form__label">Monthly Marketing Budget</label>
+                        <select id="budget" name="budget" class="form__select">
+                            <option value="">Select budget range</option>
+                            <option value="under-50k">Under ₹50,000</option>
+                            <option value="50k-1L">₹50,000 - ₹1,00,000</option>
+                            <option value="1L-2L">₹1,00,000 - ₹2,00,000</option>
+                            <option value="2L-5L">₹2,00,000 - ₹5,00,000</option>
+                            <option value="above-5L">Above ₹5,00,000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="message" class="form__label">Tell us about your goals *</label>
+                        <textarea id="message" name="message" class="form__textarea" required></textarea>
+                    </div>
+                    
+                    <p class="form__privacy">
+                        We respect your privacy. Your information will be kept confidential and used only 
+                        to contact you about our services.
+                    </p>
+                    
+                    <button type="submit" class="btn btn-primary form__submit">
+                        Request My Free AI SEO Audit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         FINAL CTA SECTION
+         ======================================== -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Make AI Work for Your SEO?</h2>
+            <p>
+                Get a free AI-SEO audit and roadmap tailored to your website. 
+                Let's build sustainable growth together.
+            </p>
+            <a href="#contact" class="btn btn-primary btn-large">Request My Free AI SEO Audit</a>
+        </div>
+    </section>
+    
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- About Column -->
+                <div class="footer__about">
+                    <h3>Serpwize Technologies</h3>
+                    <p>
+                        AI-First SEO and conversion-focused web development to help you dominate 
+                        Google, AI Overviews, and major AI platforms.
+                    </p>
+                </div>
+                
+                <!-- Services Column -->
+                <div class="footer__section">
+                    <h4>Services</h4>
+                    <ul class="footer__links">
+                        <li><a href="#services">AI-First SEO</a></li>
+                        <li><a href="#services">Technical SEO</a></li>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">Local SEO</a></li>
+                        <li><a href="#services">Content Strategy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Column -->
+                <div class="footer__section">
+                    <h4>Company</h4>
+                    <ul class="footer__links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#results">Case Studies</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources Column -->
+                <div class="footer__section">
+                    <h4>Resources</h4>
+                    <ul class="footer__links">
+                        <li><a href="#contact">Free SEO Audit</a></li>
+                        <li><a href="#blog">SEO Guides</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 Serpwize Technologies. All rights reserved. Built with AI-First SEO excellence.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navList = document.getElementById('navList');
+        
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navList.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navList.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission handler (placeholder)
+        const contactForm = document.querySelector('.form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your interest! We will contact you shortly.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
